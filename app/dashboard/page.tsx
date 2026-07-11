@@ -47,6 +47,13 @@ const misModulos: Modulo[] = [
     descripcion: 'Gestión de admisiones y peticiones de alumnos.',
     icon: 'solicitudes',
     ruta: '/dashboard/solicitudes',
+  },
+  {
+    id: 5,
+    titulo: 'Plana docente',
+    descripcion: 'Gestiona el perfil, asignaturas y horarios de los profesores.',
+    icon: 'docentes',
+    ruta: '/dashboard/plana-docente',
   }
 ];
   // Datos del usuario logueado
@@ -54,8 +61,9 @@ const misModulos: Modulo[] = [
   const usuarioRol = "Administrador";
 
 export default function DashboardPage() {
-  const modulosOrdenados = [...misModulos].sort((a, b) => a.id - b.id);
-  
+  const modulosOrdenados = [...misModulos].sort((a, b) => a.titulo.localeCompare(b.titulo));
+  //modulos principales
+  const primerosModulos: Modulo[] = misModulos.slice(0, 3);
   return (
     <div className="min-h-screen bg-panel_bg">
       <SideBar modulos={modulosOrdenados} userName ={usuarioNombre} userRole = {usuarioRol}/>
@@ -66,7 +74,7 @@ export default function DashboardPage() {
           <NavBar userName={usuarioNombre} userRole={usuarioRol} />
           
           <WelcomeBanner userName={usuarioNombre} userRole={usuarioRol} />
-          <HubModulos modulos={modulosOrdenados} />
+          <HubModulos modulos={primerosModulos} />
           <ActividadReciente actividades={ultimasActividades} />
         </main>
       </div>

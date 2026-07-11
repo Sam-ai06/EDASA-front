@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+body {
+  background-color: #ffffff !important; /* Cambia #ffffff por el color que desees (ej. #f3f4f6 para un gris claro) */
+  color: #000000 !important; /* Forzamos el texto a negro para que no se vuelva invisible */
+}

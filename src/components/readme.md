@@ -1,0 +1,1 @@
+En esta carpeta estarán los elementos visuales reutilizables.
